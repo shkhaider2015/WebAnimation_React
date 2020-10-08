@@ -1,4 +1,5 @@
 var activeTarget = null;
+var activePlayer = null;
 
 /**
  * Close any active group target.
@@ -10,6 +11,8 @@ function closeActive() {
   popup.style.visibility = 'hidden';
 
   activeTarget = null;
+  activePlayer.reverse();
+  activePlayer = null;
 }
 
 /**
@@ -28,4 +31,26 @@ function groupClick(group) {
   // Change the visibility of the group's popup.
   var popup = activeTarget.querySelector('.popup');
   popup.style.visibility = 'visible';
+
+
+  // Find the 'longEdge', the length of the diagonal in the popup's rect.
+  var rect = popup.getBoundingClientRect();
+  var dim = Math.max(rect.width, rect.height);
+  var longEdge = Math.sqrt(rect.width*rect.width  + rect.height*rect.height);
+
+  // Update the fill object with the longEdge's size.
+  var fill = popup.querySelector('.fill');
+  fill.style.width = longEdge + 'px';
+  fill.style.height = longEdge + 'px';
+  fill.style.top = -((longEdge - dim)/2) + 'px'
+  fill.style.left = -((longEdge - rect.width)/2) + 'px';
+
+  var timing = {
+    duration: rect.height * 2,
+    easing: 'ease-out',
+  };
+  // Perform a simple animation: scale(0) => scale(1).
+  activePlayer = fill.animate([{transform: 'scale(0)'}, {transform: 'scale(1)'}], timing);
+
+
 }
