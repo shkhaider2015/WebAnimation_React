@@ -21,6 +21,7 @@ function ReactTuto() {
     }
     //hjghjg
     //jhjkhjk
+    //jhjkhj
 
     const items = state.items.map(
         (object, index) => {
