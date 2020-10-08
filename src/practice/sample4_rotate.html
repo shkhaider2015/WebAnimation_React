@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotate</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Add the line below -->
+    <script src="https://cdn.rawgit.com/web-animations/web-animations-js/2.2.2/web-animations.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            var dots = document.querySelectorAll('.dot');
+            for (var i = 0; i < dots.length; i++) 
+            {
+                var dot = dots[i];
+                var start = (i / dots.length) * 360;
+                var frames = [
+                    { transform: 'rotate(' + start +  'deg) translate(80px)' },
+                    { transform: 'rotate(' + (360-(i*5)) + 'deg) translate(80px)' },
+                ];
+                var timing = {
+                    duration: 2500,
+                    iterations: Infinity,
+                    direction: 'alternate',
+                    easing: 'ease-in-out',
+                }
+
+                dot.animate(frames, timing);
+            }
+        });
+
+
+    </script>
+</head>
+
+<body>
+
+    <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+</body>
+
+</html>
