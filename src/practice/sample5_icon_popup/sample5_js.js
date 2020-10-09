@@ -45,6 +45,8 @@ function groupClick(group) {
   fill.style.top = -((longEdge - dim)/2) + 'px'
   fill.style.left = -((longEdge - rect.width)/2) + 'px';
 
+  //haksjdh
+
   var timing = {
     duration: rect.height * 2,
     easing: 'ease-out',
