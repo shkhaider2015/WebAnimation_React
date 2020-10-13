@@ -20,6 +20,7 @@ function ReactTuto() {
         setState({ items: newItem })
     }
     //hjghjg
+    //jhjkhjk
 
     const items = state.items.map(
         (object, index) => {
