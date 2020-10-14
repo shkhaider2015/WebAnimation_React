@@ -19,6 +19,7 @@ function ReactTuto() {
         newItem.splice(i, 1);
         setState({ items: newItem })
     }
+    //hjghjg
 
     const items = state.items.map(
         (object, index) => {
