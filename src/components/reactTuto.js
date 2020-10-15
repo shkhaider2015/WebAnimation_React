@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import styles from "../styles/reactTuto.css";
-import { CSSTransitionGroup } from "react-transition-group";
+import {useSpring, animated} from 'react-spring'
 
 
 
 function ReactTuto() {
     const initItem = { items: ['Hello', 'World', 'Click', 'Me'] }
     const [state, setState] = useState(initItem);
+    const props = useSpring({opacity: 1, from: {opacity: 0}})
     console.log(state.items)
     function handleAdd() {
         let txt = state.items.concat([
@@ -35,18 +35,12 @@ function ReactTuto() {
         <div>
             <div>
                 <button onClick={handleAdd}>Add Item</button>
-                <CSSTransitionGroup
-                    transitionName="example"
-                    transitionEnterTimeout={2000}
-                    transitionLeaveTimeout={2000}
-                >
-                    <div style={{width:'200px', backgroundColor : 'green' }}>
+                
+                <animated.div style={props}>
                         {
                             items
                         }
-                    </div>
-
-                </CSSTransitionGroup>
+                    </animated.div>
             </div>
             <hr />
             
