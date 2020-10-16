@@ -1,10 +1,11 @@
 import React from 'react';
+import FirstAnimation from './components/FirstAnimation';
 import ReactTuto from "./components/reactTuto";
 
 function App() {
   return (
     <div>
-      <ReactTuto />
+      <FirstAnimation />
     </div>
   );
 }
